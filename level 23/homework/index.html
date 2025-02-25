@@ -1,0 +1,28 @@
+mport tkinter as tk
+
+def create_shadow_text(canvas, text, x, y, shadow_offset, shadow_color, text_color):
+    # შექმენით ჩრდილი
+    canvas.create_text(x + shadow_offset, y + shadow_offset, text=text, fill=shadow_color, font=("Helvetica", 40))
+    # შექმენით მთავარი ტექსტი
+    canvas.create_text(x, y, text=text, fill=text_color, font=("Helvetica", 40))
+
+# შექმენით მთავარი ფანჯარა
+root = tk.Tk()
+root.title("Text with Shadow")
+
+# შექმენით Canvas
+canvas = tk.Canvas(root, width=400, height=200)
+canvas.pack()
+
+# ტექსტის პარამეტრები
+text = "Hello, World!"
+x, y = 100, 100
+shadow_offset = 2
+shadow_color = "darkred"
+text_color = "white"
+
+# შექმენით ტექსტი ჩრდილით
+create_shadow_text(canvas, text, x, y, shadow_offset, shadow_color, text_color)
+
+# გაწვდეთ GUI-ს
+root.mainloop()
